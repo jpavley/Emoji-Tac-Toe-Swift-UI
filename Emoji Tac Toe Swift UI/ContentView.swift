@@ -25,21 +25,21 @@ struct ContentView: View {
             Text("Score: \(score.oWins):\(score.xWins):\(score.ties)").font(.headline).padding()
             // row 0
             HStack {
-                cellView(index: 0, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
-                cellView(index: 1, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
-                cellView(index: 2, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                CellView(index: 0, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                CellView(index: 1, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                CellView(index: 2, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
             }
             // row 1
             HStack {
-                cellView(index: 3, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
-                cellView(index: 4, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
-                cellView(index: 5, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                CellView(index: 3, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                CellView(index: 4, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                CellView(index: 5, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
             }
             // row 2
             HStack {
-                cellView(index: 6, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
-                cellView(index: 7, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
-                cellView(index: 8, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                CellView(index: 6, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                CellView(index: 7, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                CellView(index: 8, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
             }
             // footer
             Text("\(currentTurn.rawValue)'s Turn").font(.headline).padding()

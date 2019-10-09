@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct cellView: View {
+struct CellView: View {
     let index: Int
     
     let winningVectors = [
