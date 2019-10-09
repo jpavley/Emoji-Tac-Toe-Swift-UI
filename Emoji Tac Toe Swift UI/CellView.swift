@@ -58,8 +58,7 @@ struct cellView: View {
         if winner() {
             alertTitle = "\(currentTurn.rawValue) Wins 😎"
             showAlert = true
-        }
-        if openCellCount() == 0 {
+        } else if openCellCount() == 0 {
             alertTitle = "Nobody Wins 😖"
             showAlert = true
         }
@@ -77,9 +76,11 @@ struct cellView: View {
     }
     
     func winner() -> Bool {
+                
         for v in winningVectors {
             if cellMap[v[0]] != .e && cellMap[v[1]] != .e && cellMap[v[2]] != .e {
                 if cellMap[v[0]] == cellMap[v[1]] && cellMap[v[1]] == cellMap[v[2]] {
+                    print("\(v[0]): \(cellMap[v[0]]), \(v[1]): \(cellMap[v[1]]), \(v[2]): \(cellMap[v[2]])")
                     return true
                 }
             }
