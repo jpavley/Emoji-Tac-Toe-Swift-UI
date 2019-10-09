@@ -10,6 +10,7 @@
 		B8001019234E056C0006146C /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8001018234E056C0006146C /* CellView.swift */; };
 		B800101B234E062E0006146C /* CellMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B800101A234E062E0006146C /* CellMarker.swift */; };
 		B800101D234E0B9A0006146C /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = B800101C234E0B9A0006146C /* Score.swift */; };
+		B857EB54234E51110026F209 /* AI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B857EB53234E51110026F209 /* AI.swift */; };
 		B8EA0171234B666F00E3E833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA0170234B666F00E3E833 /* AppDelegate.swift */; };
 		B8EA0173234B666F00E3E833 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA0172234B666F00E3E833 /* SceneDelegate.swift */; };
 		B8EA0175234B666F00E3E833 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA0174234B666F00E3E833 /* ContentView.swift */; };
@@ -22,6 +23,7 @@
 		B8001018234E056C0006146C /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		B800101A234E062E0006146C /* CellMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellMarker.swift; sourceTree = "<group>"; };
 		B800101C234E0B9A0006146C /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		B857EB53234E51110026F209 /* AI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI.swift; sourceTree = "<group>"; };
 		B8EA016D234B666F00E3E833 /* Emoji Tac Toe Swift UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Emoji Tac Toe Swift UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EA0170234B666F00E3E833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8EA0172234B666F00E3E833 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				B8EA0178234B667100E3E833 /* Preview Content */,
 				B800101A234E062E0006146C /* CellMarker.swift */,
 				B800101C234E0B9A0006146C /* Score.swift */,
+				B857EB53234E51110026F209 /* AI.swift */,
 			);
 			path = "Emoji Tac Toe Swift UI";
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				B8EA0171234B666F00E3E833 /* AppDelegate.swift in Sources */,
 				B800101B234E062E0006146C /* CellMarker.swift in Sources */,
 				B8EA0173234B666F00E3E833 /* SceneDelegate.swift in Sources */,
+				B857EB54234E51110026F209 /* AI.swift in Sources */,
 				B800101D234E0B9A0006146C /* Score.swift in Sources */,
 				B8EA0175234B666F00E3E833 /* ContentView.swift in Sources */,
 			);
