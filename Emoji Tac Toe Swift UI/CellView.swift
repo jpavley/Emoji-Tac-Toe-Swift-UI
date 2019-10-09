@@ -36,7 +36,6 @@ struct CellView: View {
     var body: some View {
         Button(action: {
             self.doTap()
-            
         }) {
             Text(self.cellMap[self.index].rawValue)
             .font(.largeTitle)

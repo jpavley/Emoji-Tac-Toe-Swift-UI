@@ -9,14 +9,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+        
     @State var cellMap: [CellMarker] = [.e,.e,.e,
                                         .e,.e,.e,
                                         .e,.e,.e]
     
     @State var currentTurn: CellMarker = .o
     @State var score = Score(xWins: 0, oWins: 0, ties: 0)
-    @State var playWithAI = false
+    
+    @State var playWithAI: Bool = false {
+        didSet {
+            restartGame()
+        }
+    }
         
     var body: some View {
         VStack {
@@ -50,13 +55,16 @@ struct ContentView: View {
                 Text("Play with AI")
             }
             Button(action: {
-                // restart game
-                self.currentTurn = .o
-                self.cellMap = [.e,.e,.e,.e,.e,.e,.e,.e,.e]
+                self.restartGame()
             }) {
                 Text("New Game")
             }.padding()
         }.padding()
+    }
+    
+    func restartGame() {
+        currentTurn = .o
+        cellMap = [.e,.e,.e,.e,.e,.e,.e,.e,.e]
     }
 }
 
