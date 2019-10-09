@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8001019234E056C0006146C /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8001018234E056C0006146C /* CellView.swift */; };
 		B8EA0171234B666F00E3E833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA0170234B666F00E3E833 /* AppDelegate.swift */; };
 		B8EA0173234B666F00E3E833 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA0172234B666F00E3E833 /* SceneDelegate.swift */; };
 		B8EA0175234B666F00E3E833 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA0174234B666F00E3E833 /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B8001018234E056C0006146C /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		B8EA016D234B666F00E3E833 /* Emoji Tac Toe Swift UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Emoji Tac Toe Swift UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EA0170234B666F00E3E833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8EA0172234B666F00E3E833 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				B8EA0170234B666F00E3E833 /* AppDelegate.swift */,
 				B8EA0172234B666F00E3E833 /* SceneDelegate.swift */,
 				B8EA0174234B666F00E3E833 /* ContentView.swift */,
+				B8001018234E056C0006146C /* CellView.swift */,
 				B8EA0176234B667100E3E833 /* Assets.xcassets */,
 				B8EA017B234B667100E3E833 /* LaunchScreen.storyboard */,
 				B8EA017E234B667100E3E833 /* Info.plist */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8001019234E056C0006146C /* CellView.swift in Sources */,
 				B8EA0171234B666F00E3E833 /* AppDelegate.swift in Sources */,
 				B8EA0173234B666F00E3E833 /* SceneDelegate.swift in Sources */,
 				B8EA0175234B666F00E3E833 /* ContentView.swift in Sources */,
