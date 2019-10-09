@@ -8,12 +8,6 @@
 
 import SwiftUI
 
-enum CellMarker: String {
-    case e = "❔"
-    case x = "❌"
-    case o = "⭕️"
-}
-
 struct ContentView: View {
     
     @State var cellMap: [CellMarker] = [.e,.e,.e,
