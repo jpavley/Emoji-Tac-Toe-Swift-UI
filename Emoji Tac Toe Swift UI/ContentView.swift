@@ -41,6 +41,13 @@ struct ContentView: View {
             }
             // footer
             Text("\(currentTurn.rawValue)'s Turn").font(.headline)
+            Button(action: {
+                // restart game
+                self.currentTurn = .o
+                self.cellMap = [.e,.e,.e,.e,.e,.e,.e,.e,.e]
+            }) {
+                Text("New Game")
+            }.padding()
         }.padding()
     }
 }

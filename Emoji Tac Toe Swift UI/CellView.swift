@@ -44,6 +44,7 @@ struct cellView: View {
                   message: Text("Play Again?"),
                   primaryButton: Alert.Button.destructive(Text("Yes")) {
                     // restart game
+                    self.currentTurn = .o
                     self.cellMap = [.e,.e,.e,.e,.e,.e,.e,.e,.e]
                 },
                   secondaryButton: .cancel(Text("No")) {
