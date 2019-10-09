@@ -16,7 +16,7 @@ struct ContentView: View {
     
     @State var currentTurn: CellMarker = .o
     @State var score = Score(xWins: 0, oWins: 0, ties: 0)
-    @State var singlePlayer = true
+    @State var singlePlayer = false
         
     var body: some View {
         VStack {
@@ -43,9 +43,12 @@ struct ContentView: View {
             }
             // footer
             Text("\(currentTurn.rawValue)'s Turn").font(.headline).padding()
-            Toggle(isOn: $singlePlayer) {
-                Text("Single Player")
-            }.padding()
+            HStack {
+                Toggle(isOn: $singlePlayer) {
+                    Text("")
+                }.labelsHidden()
+                Text("Play Againt AI")
+            }
             Button(action: {
                 // restart game
                 self.currentTurn = .o
