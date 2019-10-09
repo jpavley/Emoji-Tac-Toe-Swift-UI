@@ -15,29 +15,31 @@ struct ContentView: View {
                                         .e,.e,.e]
     
     @State var currentTurn: CellMarker = .o
+    
+    @State var score = Score(xWins: 0, oWins: 0, ties: 0)
         
     var body: some View {
         VStack {
             // header
-            Text("❌ vs. ⭕️").font(.largeTitle)
-            Text("Score: 1:2:3").font(.headline).padding()
+            Text("⭕️ vs. ❌").font(.largeTitle)
+            Text("Score: \(score.oWins):\(score.xWins):\(score.ties)").font(.headline).padding()
             // row 0
             HStack {
-                cellView(index: 0, currentTurn: $currentTurn, cellMap: $cellMap)
-                cellView(index: 1, currentTurn: $currentTurn, cellMap: $cellMap)
-                cellView(index: 2, currentTurn: $currentTurn, cellMap: $cellMap)
+                cellView(index: 0, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                cellView(index: 1, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                cellView(index: 2, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
             }
             // row 1
             HStack {
-                cellView(index: 3, currentTurn: $currentTurn, cellMap: $cellMap)
-                cellView(index: 4, currentTurn: $currentTurn, cellMap: $cellMap)
-                cellView(index: 5, currentTurn: $currentTurn, cellMap: $cellMap)
+                cellView(index: 3, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                cellView(index: 4, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                cellView(index: 5, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
             }
             // row 2
             HStack {
-                cellView(index: 6, currentTurn: $currentTurn, cellMap: $cellMap)
-                cellView(index: 7, currentTurn: $currentTurn, cellMap: $cellMap)
-                cellView(index: 8, currentTurn: $currentTurn, cellMap: $cellMap)
+                cellView(index: 6, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                cellView(index: 7, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                cellView(index: 8, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
             }
             // footer
             Text("\(currentTurn.rawValue)'s Turn").font(.headline)

@@ -26,6 +26,7 @@ struct cellView: View {
     
     @Binding var currentTurn: CellMarker
     @Binding var cellMap: [CellMarker]
+    @Binding var score: Score
     
     @State var showAlert = false
     @State var alertTitle = ""
@@ -59,10 +60,26 @@ struct cellView: View {
         update()
         if winner() {
             alertTitle = "\(winningMarker.rawValue) Wins 😎"
+            updateScore()
             showAlert = true
         } else if openCellCount() == 0 {
+            winningMarker = .e
             alertTitle = "Nobody Wins 😖"
+            updateScore()
             showAlert = true
+        }
+        
+
+    }
+    
+    func updateScore() {
+        switch winningMarker {
+        case .o:
+            score.oWins += 1
+        case .x:
+            score.xWins += 1
+        case .e:
+            score.ties += 1
         }
     }
     
@@ -82,8 +99,11 @@ struct cellView: View {
         for v in winningVectors {
             if cellMap[v[0]] != .e && cellMap[v[1]] != .e && cellMap[v[2]] != .e {
                 if cellMap[v[0]] == cellMap[v[1]] && cellMap[v[1]] == cellMap[v[2]] {
+                    
                     print("\(v[0]): \(cellMap[v[0]]), \(v[1]): \(cellMap[v[1]]), \(v[2]): \(cellMap[v[2]])")
+                    
                     winningMarker = cellMap[v[0]]
+                                        
                     return true
                 }
             }
