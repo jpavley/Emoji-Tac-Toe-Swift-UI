@@ -29,6 +29,7 @@ struct cellView: View {
     
     @State var showAlert = false
     @State var alertTitle = ""
+    @State var winningMarker = CellMarker.e
     
     var body: some View {
         Button(action: {
@@ -57,7 +58,7 @@ struct cellView: View {
     func doTap() {
         update()
         if winner() {
-            alertTitle = "\(currentTurn.rawValue) Wins 😎"
+            alertTitle = "\(winningMarker.rawValue) Wins 😎"
             showAlert = true
         } else if openCellCount() == 0 {
             alertTitle = "Nobody Wins 😖"
@@ -82,6 +83,7 @@ struct cellView: View {
             if cellMap[v[0]] != .e && cellMap[v[1]] != .e && cellMap[v[2]] != .e {
                 if cellMap[v[0]] == cellMap[v[1]] && cellMap[v[1]] == cellMap[v[2]] {
                     print("\(v[0]): \(cellMap[v[0]]), \(v[1]): \(cellMap[v[1]]), \(v[2]): \(cellMap[v[2]])")
+                    winningMarker = cellMap[v[0]]
                     return true
                 }
             }
