@@ -27,11 +27,12 @@ struct CellView: View {
     @Binding var currentTurn: CellMarker
     @Binding var cellMap: [CellMarker]
     @Binding var score: Score
+    @Binding var playWithAI: Bool
     
     @State var showAlert = false
     @State var alertTitle = ""
     @State var winningMarker = CellMarker.e
-    
+        
     var body: some View {
         Button(action: {
             self.doTap()
@@ -59,17 +60,36 @@ struct CellView: View {
     func doTap() {
         update()
         if winner() {
-            alertTitle = "\(winningMarker.rawValue) Wins 😎"
-            updateScore()
-            showAlert = true
-        } else if openCellCount() == 0 {
-            winningMarker = .e
-            alertTitle = "Nobody Wins 😖"
-            updateScore()
-            showAlert = true
+            doWinner()
+        } else if noMoveAvailable() {
+            doNoMove()
+        } else if aiTakeTurn() {
+            doAI()
+            if winner() {
+                doWinner()
+            } else if noMoveAvailable() {
+                doNoMove()
+            }
         }
-        
-
+    }
+    
+    func doWinner() {
+        alertTitle = "\(winningMarker.rawValue) Wins 😎"
+        updateScore()
+        showAlert = true
+    }
+    
+    func doNoMove() {
+        winningMarker = .e
+        alertTitle = "Nobody Wins 😖"
+        updateScore()
+        showAlert = true
+    }
+    
+    func doAI() {
+        let ai = AI(cellMap: $cellMap, currentTurn: $currentTurn)
+        ai.takeTurn()
+        currentTurn = .o
     }
     
     func updateScore() {
@@ -94,6 +114,14 @@ struct CellView: View {
         }
     }
     
+    func aiTakeTurn() -> Bool {
+        return playWithAI && (currentTurn == .x)
+    }
+        
+    func noMoveAvailable() -> Bool {
+        return cellMap.filter{ $0 == .e }.count == 0
+    }
+    
     func winner() -> Bool {
                 
         for v in winningVectors {
@@ -109,10 +137,6 @@ struct CellView: View {
             }
         }
         return false
-    }
-    
-    func openCellCount() -> Int {
-        return cellMap.filter{ $0 == .e }.count
     }
 }
 

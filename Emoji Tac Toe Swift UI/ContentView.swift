@@ -16,7 +16,7 @@ struct ContentView: View {
     
     @State var currentTurn: CellMarker = .o
     @State var score = Score(xWins: 0, oWins: 0, ties: 0)
-    @State var singlePlayer = false
+    @State var playWithAI = false
         
     var body: some View {
         VStack {
@@ -25,29 +25,29 @@ struct ContentView: View {
             Text("Score: \(score.oWins):\(score.xWins):\(score.ties)").font(.headline).padding()
             // row 0
             HStack {
-                CellView(index: 0, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
-                CellView(index: 1, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
-                CellView(index: 2, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                CellView(index: 0, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
+                CellView(index: 1, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
+                CellView(index: 2, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
             }
             // row 1
             HStack {
-                CellView(index: 3, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
-                CellView(index: 4, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
-                CellView(index: 5, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                CellView(index: 3, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
+                CellView(index: 4, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
+                CellView(index: 5, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
             }
             // row 2
             HStack {
-                CellView(index: 6, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
-                CellView(index: 7, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
-                CellView(index: 8, currentTurn: $currentTurn, cellMap: $cellMap, score: $score)
+                CellView(index: 6, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
+                CellView(index: 7, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
+                CellView(index: 8, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
             }
             // footer
             Text("\(currentTurn.rawValue)'s Turn").font(.headline).padding()
             HStack {
-                Toggle(isOn: $singlePlayer) {
+                Toggle(isOn: $playWithAI) {
                     Text("")
                 }.labelsHidden()
-                Text("Play Againt AI")
+                Text("Play with AI")
             }
             Button(action: {
                 // restart game

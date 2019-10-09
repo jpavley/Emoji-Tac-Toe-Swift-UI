@@ -12,13 +12,15 @@ struct AI {
     
     @Binding var cellMap: [CellMarker]
     @Binding var currentTurn: CellMarker
-    @State var difficulty = 0
+    
+    var difficulty = 0
     
     func takeTurn() {
         for i in 0..<cellMap.count {
             if cellMap[i] == .e {
                 if difficulty == 0 {
                     cellMap[i] = currentTurn
+                    break
                 }
             }
         }
