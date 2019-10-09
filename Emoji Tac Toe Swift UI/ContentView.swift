@@ -15,7 +15,7 @@ struct ContentView: View {
                                         .e,.e,.e]
     
     @State var currentTurn: CellMarker = .o
-    
+        
     var body: some View {
         VStack {
             // header
