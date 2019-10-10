@@ -67,24 +67,24 @@ struct AI {
     
     func doHard() {
         
-        func winningMove(_ index: Int) -> Bool {
+        func copyCellMap() -> [CellMarker] {
+            var result = [CellMarker]()
             
-            func copyCellMap() -> [CellMarker] {
-                var result = [CellMarker]()
-                
-                // make a deep copy so it's a different object
-                for m in cellMap {
-                    result.append(m)
-                }
-                return  result
+            // make a deep copy so it's a different object
+            for m in cellMap {
+                result.append(m)
             }
-            
+            return  result
+        }
+        
+        func winningMove(index: Int, marker: CellMarker) -> Bool {
+                        
             func winner() -> Bool {
                 
                 var cellMapCopy = copyCellMap()
                 
                 // make the proposed change
-                cellMapCopy[index] = .x
+                cellMapCopy[index] = marker
                     
                 // search for a winning vector
                 for v in AI.winningVectors {
@@ -101,21 +101,19 @@ struct AI {
                 
                 // didn't find a winning vector
                 return false
+                
             }
             return false
         }
-        
-        func blockingMove(_ index: Int) -> Bool {
-            return false
-        }
-        
+                
         var foundMove = false
         for i in 0..<cellMap.count {
             if cellMap[i] == .e {
-                if winningMove(i) {
+                if winningMove(index: i, marker: .x) {
                     cellMap[i] = currentTurn
                     foundMove = true
-                } else if blockingMove(i) {
+                } else if winningMove(index: i, marker: .o) {
+                    // looking for blocking move (a winning move for the other side)
                     cellMap[i] = currentTurn
                     foundMove = true
                 }
