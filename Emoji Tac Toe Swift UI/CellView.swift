@@ -73,14 +73,16 @@ struct CellView: View {
     }
     
     func doWinner() {
-        alertTitle = "\(winningMarker.rawValue) Wins 😎"
+        
+        let winnerEmoji = winningMarker == .o ? "😇" : "😈"
+        alertTitle = "\(winningMarker.rawValue) Wins \(winnerEmoji)"
         updateScore()
         showAlert = true
     }
     
     func doNoMove() {
         winningMarker = .e
-        alertTitle = "Nobody Wins 😖"
+        alertTitle = "Nobody Wins 🤡"
         updateScore()
         showAlert = true
     }
