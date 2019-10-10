@@ -19,6 +19,7 @@ struct ContentView: View {
     
     @State var playWithAI: Bool = false {
         didSet {
+            // TODO: Why is this not called when set?
             restartGame()
         }
     }

@@ -10,20 +10,7 @@ import SwiftUI
 
 struct CellView: View {
     let index: Int
-    
-    let winningVectors = [
-        [0,1,2], // row 0
-        [3,4,5], // row 1
-        [6,7,8], // row 2
         
-        [0,3,6], // col 0
-        [1,4,7], // col 1
-        [2,5,8], // col 2
-        
-        [0,4,8], // dia 0
-        [2,4,6]  // dia 1
-    ]
-    
     @Binding var currentTurn: CellMarker
     @Binding var cellMap: [CellMarker]
     @Binding var score: Score
@@ -125,7 +112,7 @@ struct CellView: View {
     
     func winner() -> Bool {
                 
-        for v in winningVectors {
+        for v in AI.winningVectors {
             if cellMap[v[0]] != .e && cellMap[v[1]] != .e && cellMap[v[2]] != .e {
                 if cellMap[v[0]] == cellMap[v[1]] && cellMap[v[1]] == cellMap[v[2]] {
                     
