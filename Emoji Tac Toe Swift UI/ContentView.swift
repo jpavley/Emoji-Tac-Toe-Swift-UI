@@ -72,9 +72,9 @@ struct ContentView: View {
     
     var labelColor: Color {
         if playWithAI {
-            return Color.black
+            return .primary
         } else {
-            return Color.gray
+            return .secondary
         }
     }
     
