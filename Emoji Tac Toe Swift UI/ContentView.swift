@@ -31,21 +31,21 @@ struct ContentView: View {
             Text("Score: \(score.oWins):\(score.xWins):\(score.ties)").font(.headline).padding()
             // row 0
             HStack {
-                CellView(index: 0, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
-                CellView(index: 1, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
-                CellView(index: 2, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
+                makeCellView(index: 0)
+                makeCellView(index: 1)
+                makeCellView(index: 2)
             }
             // row 1
             HStack {
-                CellView(index: 3, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
-                CellView(index: 4, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
-                CellView(index: 5, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
+                makeCellView(index: 3)
+                makeCellView(index: 4)
+                makeCellView(index: 5)
             }
             // row 2
             HStack {
-                CellView(index: 6, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
-                CellView(index: 7, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
-                CellView(index: 8, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
+                makeCellView(index: 6)
+                makeCellView(index: 7)
+                makeCellView(index: 8)
             }
             // footer
             Text("\(currentTurn.rawValue)'s Turn").font(.headline).padding()
@@ -66,6 +66,11 @@ struct ContentView: View {
     func restartGame() {
         currentTurn = .o
         cellMap = [.e,.e,.e,.e,.e,.e,.e,.e,.e]
+    }
+    
+    func makeCellView(index: Int) -> CellView {
+        return CellView(index: index, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
+
     }
 }
 
