@@ -22,24 +22,21 @@ struct AI {
         [0,4,8], // dia 0
         [2,4,6]  // dia 1
     ]
-    
-    enum Difficulty: Int {
-        case easy = 0, medium, hard
-    }
-    
+        
     @Binding var cellMap: [CellMarker]
     @Binding var currentTurn: CellMarker
-    
-    var difficulty = Difficulty.easy
+    @Binding var difficulty: Double
     
     func takeTurn() {
         switch difficulty {
-        case .easy:
+        case 0..<0.4:
             doEasy()
-        case .medium:
+        case 0.4..<0.6:
             doMedium()
-        case .hard:
+        case 0.6...1.0:
             doHard()
+        default:
+            doEasy()
         }
     }
     

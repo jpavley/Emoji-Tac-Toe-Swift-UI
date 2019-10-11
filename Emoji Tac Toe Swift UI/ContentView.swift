@@ -23,6 +23,8 @@ struct ContentView: View {
             restartGame()
         }
     }
+    
+    @State var difficulty: Double = 0.5
         
     var body: some View {
         VStack {
@@ -55,6 +57,11 @@ struct ContentView: View {
                 }.labelsHidden()
                 Text("Play with AI")
             }
+            HStack {
+                Text("Easy").foregroundColor(labelColor)
+                Slider(value: $difficulty).disabled(!playWithAI)
+                Text("Hard").foregroundColor(labelColor)
+            }.padding()
             Button(action: {
                 self.restartGame()
             }) {
@@ -63,13 +70,21 @@ struct ContentView: View {
         }.padding()
     }
     
+    var labelColor: Color {
+        if playWithAI {
+            return Color.black
+        } else {
+            return Color.gray
+        }
+    }
+    
     func restartGame() {
         currentTurn = .o
         cellMap = [.e,.e,.e,.e,.e,.e,.e,.e,.e]
     }
     
     func makeCellView(index: Int) -> CellView {
-        return CellView(index: index, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI)
+        return CellView(index: index, currentTurn: $currentTurn, cellMap: $cellMap, score: $score, playWithAI: $playWithAI, difficulty: $difficulty)
 
     }
 }

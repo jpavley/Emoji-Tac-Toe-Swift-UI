@@ -15,6 +15,7 @@ struct CellView: View {
     @Binding var cellMap: [CellMarker]
     @Binding var score: Score
     @Binding var playWithAI: Bool
+    @Binding var difficulty: Double
     
     @State var showAlert = false
     @State var alertTitle = ""
@@ -75,7 +76,7 @@ struct CellView: View {
     }
     
     func doAI() {
-        let ai = AI(cellMap: $cellMap, currentTurn: $currentTurn)
+        let ai = AI(cellMap: $cellMap, currentTurn: $currentTurn, difficulty: $difficulty)
         ai.takeTurn()
         currentTurn = .o
     }
